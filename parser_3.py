@@ -191,16 +191,16 @@ class parser():
             self.graph.add_edge(parent, right)
 ###########################################################
 
-def main():
+#def main():
 
-    tokens_val =  ['read', 'x' , ';'  ,'if','0', '<','x','then','fact',':=','1', ';','repeat', 'fact',':=','fact','*','y', ';','x',':=','x','-','1','until','x','=','0',';','write','fact'  ,'end']
-    types = ['READ', 'IDENTIFIER','SEMICOLON', 'IF', 'NUMBER', 'LESSTHAN' ,'IDENTIFIER', 'THEN', 'IDENTIFIER' , 'ASSIGN', 'number','SEMICOLON','REPEAT','IDENTIFIER','ASSIGN','IDENTIFIER','MULT','IDENTIFIER','SEMICOLON','IDENTIFIER','ASSIGN','IDENTIFIER','MINUS','number','UNTIL','IDENTIFIER','EQUAL','NUMBER','SEMICOLON','WRITE','IDENTIFIER','END']
-    #print('1')
-    p = parser(tokens_val, types)
-    #print('2')
-    p.drawParseTree()
-    #print("3")
+#    tokens_val =  ['read', 'x' , ';'  ,'if','0', '<','x','then','fact',':=','1', ';','repeat', 'fact',':=','fact','*','y', ';','x',':=','x','-','1','until','x','=','0',';','write','fact'  ,'end']
+#    types = ['READ', 'IDENTIFIER','SEMICOLON', 'IF', 'NUMBER', 'LESSTHAN' ,'IDENTIFIER', 'THEN', 'IDENTIFIER' , 'ASSIGN', 'number','SEMICOLON','REPEAT','IDENTIFIER','ASSIGN','IDENTIFIER','MULT','IDENTIFIER','SEMICOLON','IDENTIFIER','ASSIGN','IDENTIFIER','MINUS','number','UNTIL','IDENTIFIER','EQUAL','NUMBER','SEMICOLON','WRITE','IDENTIFIER','END']
+#    #print('1')
+#    p = parser(tokens_val, types)
+#    #print('2')
+#    p.drawParseTree()
+#    #print("3")
 
 
 
-main()
+#main()

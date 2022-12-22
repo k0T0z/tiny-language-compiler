@@ -9,7 +9,8 @@ from PySide6.QtWidgets import (QApplication, QFileDialog, QMainWindow,
                                QMessageBox, QPushButton, QVBoxLayout)
 
 import tinylanguagecompiler_rc
-from scanner import Token, Lexer
+from scanner import Lexer
+from parser_3 import parser
 
 
 class MainWindow(QMainWindow):
@@ -17,6 +18,9 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
+
+        self.vals = []
+        self.types = []
 
         self._cur_file = ''
 
@@ -80,14 +84,21 @@ class MainWindow(QMainWindow):
         self._output_console.append("scanning...")
         lex = Lexer(self._text_edit.toPlainText())
         s = ""
+        self.vals = []
+        self.types = []
         while lex.pos < len(lex.text):
             token = lex.get_next_token()
             s += token.__str__()
+            self.vals.append(token.value)
+            self.types.append(token.type)
         self._output_console.append(s)
 
     @Slot()
     def parse(self):
-        self._output_console.append("parse button pressed")
+        self._output_console.clear()
+        self._output_console.append("parsing...")
+        par = parser(self.vals, self.types)
+        par.drawParseTree()
 
     @Slot()
     def document_was_modified(self):

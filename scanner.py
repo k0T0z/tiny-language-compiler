@@ -12,7 +12,7 @@ class Token:
 #dictionary of all tokens in tiny language and their corresponding values
 tokens = {
     "ID": "IDENTIFIER",
-    "NUM": "number",
+    "NUM": "NUMBER",
     '+': 'PLUS',
     '-': 'MINUS',
     '*': 'TIMES',
@@ -250,33 +250,3 @@ class Lexer:
             
             else:
                 self.error()
-
-
-
-# def get_num_lines(file_name):
-#     with open(file_name) as f:
-#         for i, l in enumerate(f):
-#             pass
-#     return i + 1
-
-# print(get_num_lines('test.txt'))
-
-#def read_file(filename):
-#    with open(filename, 'r') as file:
-#        s = file.read()
-#        return s
-# print(read_file('test.txt'))
-#lex = Lexer()
-        
-
-# write into file
-#def write_file(filename, text):
-#    with open(filename, 'w') as file:
-#        while lex.pos < len(lex.text):
-#            token = lex.get_next_token()
-#            file.write(token.__str__())
-
-#write_file('output.txt', lex)
-
-
-
