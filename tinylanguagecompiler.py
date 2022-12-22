@@ -9,6 +9,7 @@ from PySide6.QtWidgets import (QApplication, QFileDialog, QMainWindow,
                                QMessageBox, QPushButton, QVBoxLayout)
 
 import tinylanguagecompiler_rc
+from scanner import Token, Lexer
 
 
 class MainWindow(QMainWindow):
@@ -75,7 +76,14 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def scan(self):
-        self._output_console.append("scan button pressed")
+        self._output_console.clear()
+        self._output_console.append("scanning...")
+        lex = Lexer(self._text_edit.toPlainText())
+        s = ""
+        while lex.pos < len(lex.text):
+            token = lex.get_next_token()
+            s += token.__str__()
+        self._output_console.append(s)
 
     @Slot()
     def parse(self):
