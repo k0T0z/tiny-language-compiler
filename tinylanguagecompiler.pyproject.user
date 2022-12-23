@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.0, 2022-12-23T00:34:55. -->
+<!-- Written by QtCreator 7.0.0, 2022-12-23T23:16:37. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -175,6 +175,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">D:/Work/ASU_FOE/CSE439s Design of Compilers/tiny-language-compiler/parser_3.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.D:/Work/ASU_FOE/CSE439s Design of Compilers/tiny-language-compiler/parser_3.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/Work/ASU_FOE/CSE439s Design of Compilers/tiny-language-compiler/parser_3.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{216b1116-d9c3-4cb9-8266-6599024880ab}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">D:\Work\ASU_FOE\CSE439s Design of Compilers\tiny-language-compiler\parser_3.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>

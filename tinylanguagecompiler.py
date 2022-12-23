@@ -32,7 +32,8 @@ class MainWindow(QMainWindow):
 
         self.read_settings()
 
-        self._text_edit.document().contentsChanged.connect(self.document_was_modified)
+        self._text_edit.document().contentsChanged.connect(
+                                        self.document_was_modified)
 
         self.set_current_file('')
         self.setUnifiedTitleAndToolBarOnMac(True)
@@ -80,8 +81,12 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def scan(self):
+        if self._text_edit.toPlainText() == "":
+            return QMessageBox.warning(self, "Tiny Language Compiler",
+                                       "Can't find any tiny language code. Try"
+                                       " to open tiny language source file.")
         self._output_console.clear()
-        self._output_console.append("scanning...")
+        self._output_console.append("scanning...\n")
         lex = Lexer(self._text_edit.toPlainText())
         s = ""
         self.vals = []
@@ -95,8 +100,16 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def parse(self):
+        if self._text_edit.toPlainText() == "":
+            return QMessageBox.warning(self, "Tiny Language Compiler",
+                                       "Can't find any tiny language code. Try"
+                                       " to open tiny language source file.")
+        if self.vals == [] or self.types == []:
+            return QMessageBox.warning(self, "Tiny Language Compiler",
+                                       "Can't find any stored tokens. This is "
+                                       "because you didn't scan your code.")
         self._output_console.clear()
-        self._output_console.append("parsing...")
+        self._output_console.append("parsing...\n")
         par = parser(self.vals, self.types)
         par.drawParseTree()
 
