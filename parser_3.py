@@ -150,7 +150,7 @@ class parser():
         if(self.current_token == expectedToken):
             self.updateCurrentToken()
         else:
-            raise('Matching Error \n Expected Token = '+expectedToken '\n Current Token = '+self.current_token)
+            raise('Matching Error')
 
     def updateCurrentToken(self):
         self.t_index += 1
