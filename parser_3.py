@@ -69,7 +69,7 @@ class parser():
         return parent
 
     def assign_stmt(self):
-        label = 'ASSIGN \n' +'(' + self.current_token +')'
+        label = 'assign \n' +'(' + self.current_token +')'
         parent = self.tree(label)
         self.match(self.current_token)
         self.match(':=')
@@ -79,7 +79,7 @@ class parser():
 
     def read_stmt(self):
         self.match('read')
-        label = 'READ \n'+ '('+ self.current_token +')'
+        label = 'read \n'+ '('+ self.current_token +')'
         parent = self.tree(label)
         self.match(self.current_token)
         return parent
@@ -94,7 +94,8 @@ class parser():
     def exp(self):
         temp = self.simpleExp()
         if self.is_comparisonOp():
-            parent = self.tree()
+            label = 'op \n' +'(' + self.current_token +')'
+            parent = self.tree(label)
             self.match(self.current_token)
             leftChild = temp
             rightChild = self.simpleExp()
@@ -105,7 +106,8 @@ class parser():
     def simpleExp(self):
         temp = self.term()
         while self.is_addOp():
-            parent = self.tree()
+            label = 'op \n' +'(' + self.current_token +')'
+            parent = self.tree(label)
             self.match(self.current_token)
             leftChild = temp
             rightChild = self.term()
@@ -116,7 +118,8 @@ class parser():
     def term(self):
         temp = self.factor()
         while self.is_mulOp():
-            parent = self.tree()
+            label = 'op \n' +'(' + self.current_token +')'
+            parent = self.tree(label)
             self.match(self.current_token)
             leftChild = temp
             rightChild = self.factor()
@@ -130,8 +133,14 @@ class parser():
             temp = self.exp()
             self.match(')')
             return temp
-        elif(self.current_token.isnumeric() or self.is_identifier()):
-            parent = self.tree()
+        elif(self.current_token.isnumeric()):
+            label = 'const \n' +'(' + self.current_token +')'
+            parent = self.tree(label)
+            self.match(self.current_token)
+            return parent
+        elif(self.is_identifier()):
+            label = 'id \n' +'(' + self.current_token +')'
+            parent = self.tree(label)
             self.match(self.current_token)
             return parent
 #############################################################################
@@ -141,7 +150,7 @@ class parser():
         if(self.current_token == expectedToken):
             self.updateCurrentToken()
         else:
-            raise('Matching Error')
+            raise('Matching Error \n Expected Token = '+expectedToken '\n Current Token = '+self.current_token)
 
     def updateCurrentToken(self):
         self.t_index += 1
