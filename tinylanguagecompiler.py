@@ -2,12 +2,14 @@ from argparse import ArgumentParser, RawTextHelpFormatter
 import sys
 
 from PySide6.QtCore import (QByteArray, QFile, QFileInfo, QSaveFile, QSettings,
-                            QTextStream, Qt, Slot)
-from PySide6.QtGui import QAction, QIcon, QKeySequence
+                            QTextStream, Qt, Slot, QDir)
+from PySide6.QtGui import (QAction, QIcon, QColorSpace, QGuiApplication,
+                           QImageReader, QKeySequence,
+                           QPalette, QPixmap)
 from PySide6.QtWidgets import (QApplication, QFileDialog, QMainWindow,
-                               QWidget, QTextEdit, QHBoxLayout,
-                               QMessageBox, QPushButton, QVBoxLayout)
-
+                               QWidget, QTextEdit, QHBoxLayout, QLabel,
+                               QMessageBox, QPushButton, QVBoxLayout,
+                               QSizePolicy)
 import tinylanguagecompiler_rc
 from scanner import Lexer
 from parser_3 import parser
@@ -18,6 +20,12 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
+
+        self._image_label = QLabel()
+        self._image_label.setBackgroundRole(QPalette.Base)
+        self._image_label.setSizePolicy(QSizePolicy.Ignored,
+                                        QSizePolicy.Ignored)
+        self._image_label.setScaledContents(True)
 
         self.vals = []
         self.types = []
@@ -32,8 +40,8 @@ class MainWindow(QMainWindow):
 
         self.read_settings()
 
-        self._text_edit.document().contentsChanged.connect(
-                                        self.document_was_modified)
+        self._text_edit.document() \
+            .contentsChanged.connect(self.document_was_modified)
 
         self.set_current_file('')
         self.setUnifiedTitleAndToolBarOnMac(True)
@@ -114,6 +122,50 @@ class MainWindow(QMainWindow):
         par.drawParseTree()
 
     @Slot()
+    def show_syntax_tree(self):
+        if self._text_edit.toPlainText() == "":
+            return QMessageBox.warning(self, "Tiny Language Compiler",
+                                       "Can't find any tiny language code. Try"
+                                       " to open tiny language source file.")
+        if self.vals == [] or self.types == []:
+            return QMessageBox.warning(self, "Tiny Language Compiler",
+                                       "Can't find any stored tokens. This is "
+                                       "because you didn't scan your code.")
+
+        reader = QImageReader("output.png")
+        reader.setAutoTransform(True)
+        new_image = reader.read()
+        native_filename = QDir.toNativeSeparators("output.png")
+        if new_image.isNull():
+            error = reader.errorString()
+            QMessageBox.information(self,
+                                    QGuiApplication.applicationDisplayName(),
+                                    f"Cannot load {native_filename}: {error}")
+            return False
+        self._set_image(new_image)
+        self.setWindowFilePath("output.png")
+
+        w = self._image.width()
+        h = self._image.height()
+        d = self._image.depth()
+        color_space = self._image.colorSpace()
+        description = color_space.description() \
+            if color_space.isValid() else 'unknown'
+        message = \
+            f'Opened "{native_filename}", {w}x{h}, Depth: {d} ({description})'
+        self.statusBar().showMessage(message)
+        return True
+
+    def _set_image(self, new_image):
+        self._image = new_image
+        if self._image.colorSpace().isValid():
+            self._image.convertToColorSpace(QColorSpace.SRgb)
+        self._image_label.setPixmap(QPixmap.fromImage(self._image))
+        self._scale_factor = 1.0
+        self._image_label.setWindowTitle("Syntax Tree")
+        self._image_label.show()
+
+    @Slot()
     def document_was_modified(self):
         self.setWindowModified(self._text_edit.document().isModified())
 
@@ -132,8 +184,11 @@ class MainWindow(QMainWindow):
         scan_button.clicked.connect(self.scan)
         parse_button = QPushButton("Parse")
         parse_button.clicked.connect(self.parse)
+        show_syntax_tree_button = QPushButton("Show Syntax Tree")
+        show_syntax_tree_button.clicked.connect(self.show_syntax_tree)
         vertical_group_box.addWidget(scan_button)
         vertical_group_box.addWidget(parse_button)
+        vertical_group_box.addWidget(show_syntax_tree_button)
 
         horizontal_group_box.addLayout(vertical_group_box)
 

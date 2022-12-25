@@ -1,5 +1,5 @@
 import sys
-import pygraphviz as pgv
+import graphviz as pgv
 
 class parser():
 
