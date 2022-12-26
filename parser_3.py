@@ -188,7 +188,7 @@ class parser():
     def tree(self, label=''):
         if not label:
             label = self.current_token
-        if label.__contains__('read') or label.__contains__('ASSIGN') or self.types[self.t_index] in self.nonTerminals:
+        if label.__contains__('read') or label.__contains__('assign') or self.types[self.t_index] in self.nonTerminals:
             self.graph.add_node(self.id, label=label, shape='rectangle')
         else:
             self.graph.add_node(self.id, label=label)
