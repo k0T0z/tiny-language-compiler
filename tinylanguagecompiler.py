@@ -101,6 +101,8 @@ class MainWindow(QMainWindow):
         self.types = []
         while lex.pos < len(lex.text):
             token = lex.get_next_token()
+            if token is None:
+                continue
             s += token.__str__()
             self.vals.append(token.value)
             self.types.append(token.type)

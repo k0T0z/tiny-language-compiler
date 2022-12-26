@@ -226,19 +226,24 @@ class Lexer:
             elif self.current_char.isalpha():
                 result = self.current_char
                 self.advance()
-
-                while self.current_char.isalpha() or self.current_char.isnumeric():
-                    result += self.current_char
-                    self.advance()
+                try:
+                    while self.current_char.isalpha() or self.current_char.isnumeric():
+                        result += self.current_char
+                        self.advance()
+                except:
+                    pass
                 return Token(tokens['ID'],result)
             
             # NUM
             elif self.current_char.isnumeric():
                 result = self.current_char
                 self.advance()
-                while self.current_char.isnumeric():
-                    result += self.current_char
-                    self.advance()
+                try:
+                    while self.current_char.isnumeric():
+                        result += self.current_char
+                        self.advance()
+                except:
+                    pass
                 return Token(tokens['NUM'],result)
 
             # Comemnt
@@ -251,23 +256,28 @@ class Lexer:
                 self.error()
 
 
-# def read_file(filename):
-#     with open(filename, 'r') as file:
-#         return file.read()
+def read_file(filename):
+    with open(filename, 'r') as file:
+        return file.read()
 
-# lex = Lexer(read_file('test2.txt'))
+lex = Lexer(read_file('test2.txt'))
         
 
-# # write into file
+# write into file
 # def write_file(filename, text):
 #     with open(filename, 'w') as file:
 #         s = ""
 #         vals = []
 #         types = []
 #         while lex.pos < len(lex.text):
-#             token = lex.get_next_token()
-#             s += token.__str__()
-#             print(token)
+#             print(f"pos: {lex.pos}")
+#             try:
+#                 token = lex.get_next_token()
+#             except:
+#                 print(f"Error at position {lex.pos}")
+#                 break
+#             # s += token.__str__()
+#             # print(token)
 #             vals.append(token.value)
 #             types.append(token.type)
 #             file.write(token.__str__())
