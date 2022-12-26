@@ -1,0 +1,2 @@
+def aloha():
+    print("ALOHA")
