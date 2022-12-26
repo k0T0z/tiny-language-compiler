@@ -47,7 +47,8 @@ class Lexer:
         self.string_value_accumulator = ""
 
     def error(self):
-        raise Exception("Invalid character")
+        print("Invalid character: " + self.current_char)
+        # raise Exception("Invalid character")
 
     def advance(self):
         self.pos += 1
@@ -71,8 +72,6 @@ class Lexer:
             if self.current_char.isspace():
                 self.skip_whitespace()
                 continue
-
-            # TODO: implement the rest of the DFAs in here
             
             # PLUS
             elif self.current_char == "+":
@@ -250,3 +249,27 @@ class Lexer:
             
             else:
                 self.error()
+
+
+# def read_file(filename):
+#     with open(filename, 'r') as file:
+#         return file.read()
+
+# lex = Lexer(read_file('test2.txt'))
+        
+
+# # write into file
+# def write_file(filename, text):
+#     with open(filename, 'w') as file:
+#         s = ""
+#         vals = []
+#         types = []
+#         while lex.pos < len(lex.text):
+#             token = lex.get_next_token()
+#             s += token.__str__()
+#             print(token)
+#             vals.append(token.value)
+#             types.append(token.type)
+#             file.write(token.__str__())
+
+# write_file('output.txt', lex)
