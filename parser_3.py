@@ -1,5 +1,6 @@
 import sys
-import pygraphviz as pgv
+# import pygraphviz as pgv
+from pygraph.agraph import AGraph
 
 class parser():
 
@@ -9,7 +10,8 @@ class parser():
         self.types = types
         self.t_index = 0
         self.current_token = self.tokens_val[self.t_index]
-        self.graph = pgv.AGraph()
+        # self.graph = pgv.AGraph()
+        self.graph = AGraph()
         self.id = 0
         self.stmt_seq()
 
@@ -36,7 +38,7 @@ class parser():
         elif self.current_token == 'write':
             return self.write_stmt()
         else:
-            raise('Unaccepted Statement')
+            raise Exception('Unaccepted Statement')
 
 
     def if_stmt(self):
@@ -150,7 +152,7 @@ class parser():
         if(self.current_token == expectedToken):
             self.updateCurrentToken()
         else:
-            raise('Matching Error')
+            raise Exception("Matching Error")
 
     def updateCurrentToken(self):
         self.t_index += 1
