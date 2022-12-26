@@ -107,6 +107,7 @@ class MainWindow(QMainWindow):
             self.vals.append(token.value)
             self.types.append(token.type)
         self._output_console.append(s)
+        self._output_console.append("\nScanning completed")
 
     @Slot()
     def parse(self):
@@ -122,6 +123,7 @@ class MainWindow(QMainWindow):
         self._output_console.append("parsing...\n")
         par = parser(self.vals, self.types)
         par.drawParseTree()
+        self._output_console.append("parsing completed")
 
     @Slot()
     def show_syntax_tree(self):
