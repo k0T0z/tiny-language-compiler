@@ -33,8 +33,7 @@ end
  
 ### Compiler
 
-We are working on Mac OS X, so we need to install Xcode command line tools. If the following steps don't work, download them directly from [Apple Developer's website](https://developer.apple.com/download/more/). 
-I'm using MinGW Compiler, eaiser install it from SourceForge or MSYS
+I'm using MinGW Compiler, either install it from SourceForge or MSYS
 
 ### Qt6
 
@@ -44,7 +43,9 @@ I'm using MinGW Compiler, eaiser install it from SourceForge or MSYS
 * We will not be using CMake since QMake comes bundled with the creator
 
 ## Team Members
-```Usama Ahmed Kawashty Abdelraheem 18Q9484```
-```Saif Salah Eldeen Yahya Mostafa 1901529```
-```Hussein Ahmed Hussein Adbelgalil 18Q4984```
-```Yousef Mohamed Elsharkawy 18Q4486```
+```
+Usama Ahmed Kawashty Abdelraheem 18Q9484
+Saif Salah Eldeen Yahya Mostafa 1901529
+Hussein Ahmed Hussein Adbelgalil 18Q4984
+Yousef Mohamed Elsharkawy 18Q4486
+```
