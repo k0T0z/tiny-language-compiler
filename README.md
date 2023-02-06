@@ -1,16 +1,46 @@
 # tiny-language-compiler
-A simple Qt-Python tiny language compiler
 
-
-## INDEX
- * [Objective](#objective)
- * [Requirements](#requirements)
- * [Team Members](#team_members)
+This is a Qt project that demonstrates the integration of Python with the Qt framework.
 
 ## Objective
 
 To create a Qt GUI application that demonstrate how to scan and parse tiny language source files using recursive decent parsing method and then generate parse tree for the syntax.
 
+## Prerequisites
+
+Before building and running this project, you will need to have the following installed on your system:
+
+- Qt 7.0.0
+- Python 3.11
+- PyQt6 (the Python bindings for Qt)
+- PySide6
+- Qt Creator (optional but recommended for development)
+
+## Features
+
+- Scan tiny language source files for different types of tokens here's a list:
+| Token Type    | Value         |
+| ------------- | ------------- |
+| SEMICOLON     |      ;        |
+| IF            |      if       |
+| THEN          |     then      |
+| END           | end           |
+| REPEAT        | repeat        |
+| UNTIL         | until         |
+| IDENTIFIER    | x, abc, xyz   |
+| ASSIGN        | :=            |
+| READ          | read          |
+| WRITE         | write         |
+| LESSTHAN      | <             |
+| EQUAL         | =             |
+| PLUS          | +             |
+| MINUS         | -             |
+| MULT          | *             |
+| DIV           | /             |
+| OPENBRACKET   | (             |
+| CLOSEDBRACKET | (             |
+| NUMBER        | 12, 289       |
+- Parse different kinds of tokens and create the parse tree here's an example for a tiny language source file with it's pasre/syntax tree:
 ```
 {sample program in TINY language- computes factorial}
 read x; { input an integer }
@@ -23,29 +53,41 @@ if 0<x then { don’t compute if x<=0 }
   write fact{output factorial of x}
 end
 ```
-
 ![output](https://user-images.githubusercontent.com/74428638/209871795-8f308d82-aeb8-4b91-8099-0ba3cba14ea2.png)
 
-## Requirements
- 
- * PyQt6
- * PySide6
- 
-### Compiler
+## Building the project
 
-I'm using MinGW Compiler, either install it from SourceForge or MSYS
+Here are the steps to build and run the project:
 
-### Qt6
-
-* Start by installing the Qt6 SDK from (qt.io)[https://www.qt.io/download]. I decided to go with the Open Source version
-* Currently, since this is an experiment, I decided to install Qt 7.0.0. 
-* Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
-* We will not be using CMake since QMake comes bundled with the creator
-
-## Team Members
+1. Clone the repository
+```bash
+git clone https://github.com/saifkandil/tiny-language-compiler.git
 ```
-Usama Ahmed Kawashty Abdelraheem 18Q9484
-Saif Salah Eldeen Yahya Mostafa 1901529
-Hussein Ahmed Hussein Adbelgalil 18Q4984
-Yousef Mohamed Elsharkawy 18Q4486
+2. Change into the project directory
+```bash
+cd tiny-language-compiler
 ```
+3. Run the Python script to generate the Makefile (you will need to create a generate_makefile.py file)
+```bash
+python generate_makefile.py
+```
+4. Compile the project using make
+```bash
+make
+```
+5. Run the project
+```bash
+./tiny-language-compiler
+```
+6. We will not be using CMake since QMake comes bundled with the creator
+
+## Acknowledgements
+
+We would like to extend our gratitude to the Qt and Python communities for their support and for providing such powerful tools for developing GUI applications. We would also like to acknowledge the open-source projects and libraries that were used in the development of this project.
+
+## About US
+
+- Usama Ahmed Kawashty Abdelraheem ``18Q9484``
+- Saif Salah Eldeen Yahya Mostafa ``1901529``
+- Hussein Ahmed Hussein Adbelgalil ``18Q4984``
+- Yousef Mohamed Elsharkawy ``18Q4486``
