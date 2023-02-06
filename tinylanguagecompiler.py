@@ -100,14 +100,16 @@ class MainWindow(QMainWindow):
         self.vals = []
         self.types = []
         while lex.pos < len(lex.text):
-            token = lex.get_next_token()
-            if token is None:
-                continue
-            s += token.__str__()
-            self.vals.append(token.value)
-            self.types.append(token.type)
+            try:
+                token = lex.get_next_token()
+                if token is None:
+                    continue
+                s += token.__str__()
+                self.vals.append(token.value)
+                self.types.append(token.type)
+            except:
+                return QMessageBox.warning(self, "Scanning Error", "Erorr in the scanner, check the terminal for more details")
         self._output_console.append(s)
-        self._output_console.append("\nScanning completed")
 
     @Slot()
     def parse(self):
@@ -121,9 +123,11 @@ class MainWindow(QMainWindow):
                                        "because you didn't scan your code.")
         self._output_console.clear()
         self._output_console.append("parsing...\n")
-        par = parser(self.vals, self.types)
-        par.drawParseTree()
-        self._output_console.append("parsing completed")
+        try:
+            par = parser(self.vals, self.types)
+            par.drawParseTree()
+        except:
+            return QMessageBox.warning(self, "Parsing Error", "Erorr in the Parser, check the terminal for more details")
 
     @Slot()
     def show_syntax_tree(self):

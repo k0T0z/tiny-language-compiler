@@ -48,7 +48,7 @@ class Lexer:
 
     def error(self):
         print("Invalid character: " + self.current_char)
-        # raise Exception("Invalid character")
+        raise Exception("Invalid character")
 
     def advance(self):
         self.pos += 1
