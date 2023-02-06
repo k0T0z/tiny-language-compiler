@@ -19,6 +19,7 @@ Before building and running this project, you will need to have the following in
 ## Features
 
 - Scan tiny language source files for different types of tokens here's a list:
+
 | Token Type    | Value         |
 | ------------- | ------------- |
 | SEMICOLON     |      ;        |
@@ -40,6 +41,7 @@ Before building and running this project, you will need to have the following in
 | OPENBRACKET   | (             |
 | CLOSEDBRACKET | (             |
 | NUMBER        | 12, 289       |
+
 - Parse different kinds of tokens and create the parse tree here's an example for a tiny language source file with it's pasre/syntax tree:
 ```
 {sample program in TINY language- computes factorial}
