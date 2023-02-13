@@ -2,6 +2,8 @@
 
 This is a Qt project that demonstrates the integration of Python with the Qt framework.
 
+![untitled txt - Tiny Language Compiler 13_02_2023 08_07_25 PM](https://user-images.githubusercontent.com/74428638/218539675-306a2e0a-9574-4bb5-b95e-1bf0ba6bd312.png)
+
 ## Objective
 
 To create a Qt GUI application that demonstrate how to scan and parse tiny language source files using recursive decent parsing method and then generate parse tree for the syntax.
