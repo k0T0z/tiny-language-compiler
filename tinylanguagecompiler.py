@@ -185,22 +185,22 @@ class MainWindow(QMainWindow):
         main_layout = QVBoxLayout()
 
         horizontal_group_box = QHBoxLayout()
-        horizontal_group_box.addWidget(self._text_edit)
 
-        vertical_group_box = QVBoxLayout()
         scan_button = QPushButton("Scan")
         scan_button.clicked.connect(self.scan)
         parse_button = QPushButton("Parse")
         parse_button.clicked.connect(self.parse)
         show_syntax_tree_button = QPushButton("Show Syntax Tree")
-        show_syntax_tree_button.clicked.connect(self.show_syntax_tree)
-        vertical_group_box.addWidget(scan_button)
-        vertical_group_box.addWidget(parse_button)
-        vertical_group_box.addWidget(show_syntax_tree_button)
 
-        horizontal_group_box.addLayout(vertical_group_box)
+        horizontal_group_box.addWidget(scan_button)
+        horizontal_group_box.addWidget(parse_button)
+        horizontal_group_box.addWidget(show_syntax_tree_button)
 
         main_layout.addLayout(horizontal_group_box)
+
+        main_layout.addWidget(self._text_edit)
+
+        show_syntax_tree_button.clicked.connect(self.show_syntax_tree)
 
         self._output_console = QTextEdit()
         self._output_console.setReadOnly(True)
