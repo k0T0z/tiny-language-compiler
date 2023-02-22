@@ -88,19 +88,11 @@ git clone https://github.com/saifkandil/tiny-language-compiler.git
 ```bash
 cd tiny-language-compiler
 ```
-8. Run the Python script to generate the Makefile (you will need to create a generate_makefile.py file)
+8. Run the project
 ```bash
-python generate_makefile.py
+py tiny-language-compiler
 ```
-9. Compile the project using make
-```bash
-make
-```
-10. Run the project
-```bash
-./tiny-language-compiler
-```
-11. We will not be using CMake since QMake comes bundled with the creator
+9. We will not be using CMake since QMake comes bundled with the creator
 
 ## Acknowledgements
 
