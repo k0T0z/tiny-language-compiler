@@ -63,27 +63,44 @@ end
 
 Here are the steps to build and run the project:
 
-1. Clone the repository
+```
+Last modification date: 2023 - 02 - 22 02:16 PM
+```
+1. Download qt creator or vscode or any IDE you see fit
+2. Install python
+```bash
+https://www.python.org/downloads/
+```
+3. Add pip to your path (if it doesn't)
+4. Install PySide6
+```bash
+pip install pyside6
+```
+5. Change python interpreter to point to the right one (qt creator, vscode, ...)
+```
+Example: C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\python.exe
+```
+6. Clone the repository
 ```bash
 git clone https://github.com/saifkandil/tiny-language-compiler.git
 ```
-2. Change into the project directory
+7. Change into the project directory
 ```bash
 cd tiny-language-compiler
 ```
-3. Run the Python script to generate the Makefile (you will need to create a generate_makefile.py file)
+8. Run the Python script to generate the Makefile (you will need to create a generate_makefile.py file)
 ```bash
 python generate_makefile.py
 ```
-4. Compile the project using make
+9. Compile the project using make
 ```bash
 make
 ```
-5. Run the project
+10. Run the project
 ```bash
 ./tiny-language-compiler
 ```
-6. We will not be using CMake since QMake comes bundled with the creator
+11. We will not be using CMake since QMake comes bundled with the creator
 
 ## Acknowledgements
 
