@@ -64,14 +64,17 @@ end
 Here are the steps to build and run the project:
 
 ```
-Last modification date: 2023 - 02 - 22 02:16 PM
+Last modification date: 2023 - 02 - 22 03:35 PM
 ```
 1. Download qt creator or vscode or any IDE you see fit
 2. Install python
 ```bash
 https://www.python.org/downloads/
 ```
-3. Add pip to your path (if it doesn't)
+3. Add scripts directory to your path (if it doesn't) (this includes pip clang-format etc...)
+```
+Example path: C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\Scripts
+```
 4. Install PySide6
 ```bash
 pip install pyside6
