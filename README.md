@@ -61,7 +61,7 @@ end
 
 ## Building the project
 
-Here are the steps to build and run the project (for windows we didn't run the project on any other platform):
+Here are the steps to build and run the project (for windows only, we didn't run the project on any other platform):
 
 ```
 Last modification date: 2023 - 02 - 22 03:35 PM
