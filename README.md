@@ -95,7 +95,6 @@ cd tiny-language-compiler
 ```bash
 py tiny-language-compiler
 ```
-9. We will not be using CMake since QMake comes bundled with the creator
 
 ## Acknowledgements
 
