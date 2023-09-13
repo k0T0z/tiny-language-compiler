@@ -6,7 +6,7 @@ This is a Qt project that demonstrates the integration of Python with the Qt fra
 
 ## Objective
 
-To create a Qt GUI application that demonstrate how to scan and parse tiny language source files using recursive decent parsing method and then generate parse tree for the syntax.
+To create a Qt GUI application that demonstrates how to scan and parse tiny language source files using recursive decent parsing method and then generate a parse tree for the syntax.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Before building and running this project, you will need to have the following in
 | CLOSEDBRACKET | (             |
 | NUMBER        | 12, 289       |
 
-- Parse different kinds of tokens and create the parse tree here's an example for a tiny language source file with it's pasre/syntax tree:
+- Parse different kinds of tokens and create the parse tree here's an example for a tiny language source file with its parse/syntax tree:
 ```
 {sample program in TINY language- computes factorial}
 read x; { input an integer }
@@ -61,12 +61,12 @@ end
 
 ## Building the project
 
-Here are the steps to build and run the project (for windows only, we didn't run the project on any other platform):
+Here are the steps to build and run the project (for Windows only, we didn't run the project on any other platform):
 
 ```
 Last modification date: 2023 - 02 - 22 03:35 PM
 ```
-1. Download qt creator or vscode or any IDE you see fit
+1. Download Qt Creator or VSCode or any IDE you see fit
 2. Install python
 ```bash
 https://www.python.org/downloads/
@@ -79,7 +79,7 @@ Example path: C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\
 ```bash
 pip install pyside6
 ```
-5. Change python interpreter to point to the right one (qt creator, vscode, ...)
+5. Change the Python interpreter to point to the right one (qt creator, vscode, ...)
 ```
 Example: C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\python.exe
 ```
@@ -96,13 +96,33 @@ cd tiny-language-compiler
 py tiny-language-compiler
 ```
 
+## Contributing
+
+We welcome contributions from the community. If you would like to contribute to this project, please follow these guidelines:
+
+### Pull Request Process
+
+1. Fork this repository.
+2. Create a new branch with a descriptive name for your feature or bug fix.
+3. Make your changes and ensure that your code follows the project's coding style and conventions.
+4. Document your changes briefly.
+5. Commit your changes and provide a clear and concise commit message.
+6. Push your changes to your forked repository.
+7. Open a Pull Request against this repository's `master` branch.
+
+### Questions and Feedback
+
+If you have questions or need further assistance, please open an issue or join our community discussion in the [Discussions]([https://github.com/your-repo/discussions](https://github.com/k0T0z/tiny-language-compiler/discussions)) section.
+
+Thank you for your contribution!
+
 ## Acknowledgements
 
 We would like to extend our gratitude to the Qt and Python communities for their support and for providing such powerful tools for developing GUI applications. We would also like to acknowledge the open-source projects and libraries that were used in the development of this project.
 
 ## About US
 
-We are a group of four students currently enrolled at Ain Shams University, Faculty of Engineering, who share a passion for solving complex problems and creating innovative solutions. Our team consists of a four Computer & Systems Engineering majors, providing a unique blend of skills and perspectives.
+We are a group of four students currently enrolled at Ain Shams University, Faculty of Engineering, who share a passion for solving complex problems and creating innovative solutions. Our team consists of four Computer & Systems Engineering majors, providing a unique blend of skills and perspectives.
 
 At the heart of our team is a shared commitment to hard work, collaboration, and making a difference. Whether we're working on a school project or a startup, we approach every challenge with enthusiasm, creativity, and a drive to succeed.
 
