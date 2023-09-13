@@ -112,7 +112,7 @@ We welcome contributions from the community. If you would like to contribute to 
 
 ### Questions and Feedback
 
-If you have questions or need further assistance, please open an issue or join our community discussion in the [Discussions]([https://github.com/your-repo/discussions](https://github.com/k0T0z/tiny-language-compiler/discussions)) section.
+If you have questions or need further assistance, please open an issue or join our community discussion in the [Discussions](https://github.com/k0T0z/tiny-language-compiler/discussions) section.
 
 Thank you for your contribution!
 
