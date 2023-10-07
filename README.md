@@ -71,17 +71,17 @@ Last modification date: 2023 - 02 - 22 03:35 PM
 ```bash
 https://www.python.org/downloads/
 ```
-3. Add scripts directory to your path (if it doesn't) (this includes pip clang-format etc...)
+3. Add scripts directory to your path (if it doesn't) (this includes pip clang-format etc...). Example path: 
 ```
-Example path: C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\Scripts
+C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\Scripts
 ```
 4. Install PySide6
 ```bash
 pip install pyside6
 ```
-5. Change the Python interpreter to point to the right one (qt creator, vscode, ...)
+5. Change the Python interpreter to point to the right one (qt creator, vscode, ...). Example: 
 ```
-Example: C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\python.exe
+C:\Users\${YOUR_USERNAME}\AppData\Local\Programs\Python\Python311\python.exe
 ```
 6. Clone the repository
 ```bash
